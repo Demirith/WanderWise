@@ -1,0 +1,12 @@
+{
+    "responses": [
+        {
+            "prompt": "Give one activity suggestion for a day in Tokyo.",
+            "response_message": {
+                "content": "Visit the famous Tsukiji Fish Market for a unique and bustling experience. Watch the auctions, sample fresh seafood, and explore the stalls selling a wide variety of food and goods. Don't forget to try some sushi at one of the popular restaurants nearby!",
+                "role": "assistant"
+            },
+            "model_used": "gpt-3.5-turbo-0125"
+        }
+    ]
+}
