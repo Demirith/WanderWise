@@ -7,6 +7,43 @@
                 "role": "assistant"
             },
             "model_used": "gpt-3.5-turbo-0125"
+        },
+        {
+            "prompt": [
+                {
+                    "role": "user",
+                    "content": "Advice on a trip with the given information"
+                },
+                {
+                    "role": "user",
+                    "content": "Start Destination: Tokyo"
+                },
+                {
+                    "role": "user",
+                    "content": "End Destination: Kyoto"
+                },
+                {
+                    "role": "user",
+                    "content": "Duration: 7 days"
+                },
+                {
+                    "role": "user",
+                    "content": "Budget: $2000"
+                },
+                {
+                    "role": "user",
+                    "content": "Points of Interest: Mount Fuji, Kyoto"
+                },
+                {
+                    "role": "user",
+                    "content": "Interests: Hiking, Fishing, Food, Sleeping in a ryokan"
+                }
+            ],
+            "response_message": {
+                "content": "Given your interests and budget, here is a suggested itinerary for your trip from Tokyo to Kyoto in 7 days:\n\nDay 1-3: Tokyo\n- Explore popular sites like Shibuya, Shinjuku, and Asakusa\n- Visit Tsukiji Fish Market for a fresh seafood breakfast\n- Enjoy traditional Japanese cuisine at local restaurants\n- Stay in a ryokan in Tokyo for a unique accommodation experience\n\nDay 4-5: Mount Fuji\n- Take a day trip to Mount Fuji for hiking and breathtaking views\n- Visit the Fuji Five Lakes area for nature walks and fishing opportunities\n- Stay overnight at a ryokan near Mount Fuji for a relaxing experience\n\nDay 6-7: Kyoto\n- Travel to Kyoto and visit historic temples and shrines like Fushimi Inari Taisha and Kinkaku-ji\n- Explore the Arashiyama Bamboo Grove and the Gion district for traditional charm\n- Enjoy a traditional kaiseki meal in Kyoto and experience the local cuisine\n- Stay in a ryokan in Kyoto for an authentic Japanese stay\n\nTips:\n- Consider purchasing a Japan Rail Pass for unlimited travel on JR trains between cities\n- Plan your accommodations and activities in advance to make the most of your time and budget\n- Try to experience a traditional tea ceremony or a visit to an onsen for a complete Japanese cultural experience\n\nWith this itinerary, you will have the opportunity to explore the vibrant city of Tokyo, hike in the picturesque Mount Fuji area, and immerse yourself in the rich culture of Kyoto, all while enjoying your favorite activities like hiking, fishing, and trying delicious Japanese food. Have a wonderful trip!",
+                "role": "assistant"
+            },
+            "model_used": "gpt-3.5-turbo-0125"
         }
     ]
 }
