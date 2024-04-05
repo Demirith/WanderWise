@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'WanderWiseAPI',
+    'wander_wise_api',
 ]
 
 MIDDLEWARE = [
