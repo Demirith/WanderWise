@@ -1,5 +1,5 @@
 """
-ASGI config for WanderWiseBackend project.
+ASGI config for wander_wise_backend project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'WanderWiseBackend.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'wander_wise_backend.settings')
 
 application = get_asgi_application()
