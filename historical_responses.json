@@ -44,6 +44,14 @@
                 "role": "assistant"
             },
             "model_used": "gpt-3.5-turbo-0125"
+        },
+        {
+            "prompt": "[{\"role\": \"user\", \"content\": \"Advice on a trip with the given information\"}, {\"role\": \"user\", \"content\": \"Start Destination: Tokyo\"}, {\"role\": \"user\", \"content\": \"End Destination: Kyoto\"}, {\"role\": \"user\", \"content\": \"Duration: 4 weeks\"}, {\"role\": \"user\", \"content\": \"Budget: $7000\"}, {\"role\": \"user\", \"content\": \"Points of Interest: Mount Fuji, Kyoto\"}, {\"role\": \"user\", \"content\": \"Interests: Hiking, Fishing, Food, Sleeping in a ryokan\"}]",
+            "response_message": {
+                "content": "With a budget of $7000 for a 4-week trip from Tokyo to Kyoto, you have a good amount to cover transportation, accommodation, food, activities, and souvenirs. Here's a suggested itinerary tailored to your interests:\n\nWeek 1:\n- Spend the first week exploring Tokyo. Visit popular spots like Shibuya, Shinjuku, Tsukiji Fish Market, and the traditional district of Asakusa. Try street food, sushi, and ramen. Take a day trip to nearby Kawagoe for hiking trails. Stay in a mix of hotels and ryokans.\n\nWeek 2:\n- Travel to Hakone for a 2-day trip to Mount Fuji. Hike around the area, visit hot springs, and go fishing in Lake Ashi. Stay in a ryokan with a view of Mount Fuji. Experience traditional kaiseki meals and sleep on a tatami mat.\n\nWeek 3:\n- Head to Kyoto for the next two weeks. Explore historic temples, shrines, and the beautiful Arashiyama Bamboo Grove. Enjoy tea ceremonies, kaiseki meals, and shopping for souvenirs. Stay in a mix of traditional ryokans and modern accommodations.\n\nWeek 4:\n- Take day trips from Kyoto to Nara and Osaka for more cultural experiences and delicious food. Participate in a traditional tea ceremony or try your hand at fishing in the Katsura River. Spend your last few days relaxing in Kyoto before heading back to Tokyo for your flight home.\n\nRemember to book transportation in advance to save money and consider purchasing a Japan Rail Pass for unlimited travel on certain trains. Enjoy your trip and immerse yourself in Japan's rich culture and natural beauty!",
+                "role": "assistant"
+            },
+            "model_used": "gpt-3.5-turbo-0125"
         }
     ]
 }
