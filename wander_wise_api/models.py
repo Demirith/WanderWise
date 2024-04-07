@@ -8,12 +8,6 @@ class Suggestion:
         self.role = response_message.role
         self.model_used = model_used
         
-    def get_prompt(self): 
-        return self.prompt
-    
-    def set_prompt(self, prompt):
-        self.prompt = prompt
-        
     def to_dict(self):
         return {
             "prompt": self.prompt,
