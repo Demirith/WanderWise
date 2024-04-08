@@ -1,6 +1,6 @@
 from openai import OpenAI
-from wander_wise_api.services.ITripSuggestionService import ITripSuggestionService
-from wander_wise_api.repositories.ITripsRepository import ITripsRepository
+from wander_wise_api.services.i_trip_suggestion_service import ITripSuggestionService
+from wander_wise_api.repositories.i_trips_repository import ITripsRepository
 
 class TripsService: 
     def __init__(self, trips_repository: ITripsRepository, trip_suggestion_service: ITripSuggestionService):

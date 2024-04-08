@@ -1,5 +1,5 @@
 import json
-from wander_wise_api.repositories.ITripsRepository import ITripsRepository
+from wander_wise_api.repositories.i_trips_repository import ITripsRepository
 
 class TripsRepository(ITripsRepository): 
     def save_suggestion(self, suggestion_response): 

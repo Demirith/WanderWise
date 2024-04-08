@@ -1,18 +1,10 @@
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from wander_wise_api.services.TripsService import TripsService
-from wander_wise_api.services.OpenAIService import OpenAIService
-from wander_wise_api.repositories.TripsRepository import TripsRepository
+from .service_locator import service_locator
 
-# Create your views here.
 @api_view(['GET'])
-def suggestion(request):
-    #Where to inject this?
-    open_ai_service = OpenAIService()
-    trips_repository = TripsRepository()
-    trips_service = TripsService(trips_repository, open_ai_service)
-
+def suggestion(request, service_locator=service_locator):
     messages = [
         {"role": "user", "content": "Advice on a trip with the given information"},
         {"role": "user", "content": "Start Destination: Tokyo"},
@@ -23,6 +15,7 @@ def suggestion(request):
         {"role": "user", "content": "Interests: Hiking, Fishing, Food, Sleeping in a ryokan"}
     ]    
     
+    trips_service = service_locator.get_service('trips_service')
     suggestion_response = trips_service.get_suggestion(messages)
 
     return Response(suggestion_response.to_dict())

@@ -1,7 +1,7 @@
 import json
 from openai import OpenAI
 from wander_wise_api.models import Suggestion
-from wander_wise_api.services.ITripSuggestionService import ITripSuggestionService
+from wander_wise_api.services.i_trip_suggestion_service import ITripSuggestionService
 
 class OpenAIService(ITripSuggestionService):
     def __init__(self) -> None:
