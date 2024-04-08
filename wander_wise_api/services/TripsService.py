@@ -1,8 +1,9 @@
-
 from openai import OpenAI
-    
+from wander_wise_api.services.IOpenAIService import IOpenAIService
+from wander_wise_api.repositories.ITripsRepository import ITripsRepository
+
 class TripsService: 
-    def __init__(self, trips_repository, open_ai_service):
+    def __init__(self, trips_repository: ITripsRepository, open_ai_service: IOpenAIService):
         self.repository =  trips_repository
         self.open_ai_service = open_ai_service
         

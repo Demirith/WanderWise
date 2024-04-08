@@ -1,6 +1,7 @@
 import json
+from wander_wise_api.repositories.ITripsRepository import ITripsRepository
 
-class TripsRepository: 
+class TripsRepository(ITripsRepository): 
     def save_suggestion(self, suggestion_response): 
         json_file_path = "historical_responses.json"
 

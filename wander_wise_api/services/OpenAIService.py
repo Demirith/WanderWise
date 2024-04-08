@@ -1,9 +1,10 @@
 import json
 from openai import OpenAI
 from wander_wise_api.models import Suggestion
+from wander_wise_api.services.IOpenAIService import IOpenAIService
 
-class OpenAIService:
-    def __init__(self):
+class OpenAIService(IOpenAIService):
+    def __init__(self) -> None:
         self.client = OpenAI() 
     
     def get_suggestion_from_open_ai(self, messages):
