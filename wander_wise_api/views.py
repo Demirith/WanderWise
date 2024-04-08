@@ -18,4 +18,4 @@ def suggestion(request):
     
     suggestion_response = get_suggestion.generate_trip_suggestion(messages)
     
-    return Response(suggestion_response.to_dict)
+    return Response(suggestion_response.to_dict())
