@@ -1,14 +1,14 @@
 from openai import OpenAI
-from wander_wise_api.services.IOpenAIService import IOpenAIService
+from wander_wise_api.services.ITripSuggestionService import ITripSuggestionService
 from wander_wise_api.repositories.ITripsRepository import ITripsRepository
 
 class TripsService: 
-    def __init__(self, trips_repository: ITripsRepository, open_ai_service: IOpenAIService):
+    def __init__(self, trips_repository: ITripsRepository, trip_suggestion_service: ITripSuggestionService):
         self.repository =  trips_repository
-        self.open_ai_service = open_ai_service
+        self.trip_suggestion_service = trip_suggestion_service
         
     def get_suggestion(self, messages):
-        suggestion_response = self.open_ai_service.get_suggestion_from_open_ai(messages)
+        suggestion_response = self.trip_suggestion_service.get_trip_suggestion(messages)
         
         print(suggestion_response.content)
         

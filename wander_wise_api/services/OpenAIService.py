@@ -1,13 +1,13 @@
 import json
 from openai import OpenAI
 from wander_wise_api.models import Suggestion
-from wander_wise_api.services.IOpenAIService import IOpenAIService
+from wander_wise_api.services.ITripSuggestionService import ITripSuggestionService
 
-class OpenAIService(IOpenAIService):
+class OpenAIService(ITripSuggestionService):
     def __init__(self) -> None:
         self.client = OpenAI() 
     
-    def get_suggestion_from_open_ai(self, messages):
+    def get_trip_suggestion(self, messages):
         completion = self.client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=messages
