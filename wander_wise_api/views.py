@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework import status
 from .service_locator import service_locator
 from wander_wise_api.dto.suggestion_dto import SuggestionDTO
 
@@ -16,8 +17,12 @@ def suggestion(request, service_locator=service_locator):
         {"role": "user", "content": "Interests: Hiking, Fishing, Food, Sleeping in a ryokan"}
     ]    
     
-    trips_service = service_locator.get_service('trips_service')
-    suggestion = trips_service.get_suggestion(messages)
+    try:
+        trips_service = service_locator.get_service('trips_service')
+        suggestion = trips_service.get_suggestion(messages)
 
-    suggestion_response = SuggestionDTO.from_suggestion(suggestion)
-    return Response(suggestion_response.to_dict())
+        suggestion_response = SuggestionDTO.from_suggestion(suggestion)
+        return Response(suggestion_response.to_dict())
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return Response({"error": "An error occurred while processing the request"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
