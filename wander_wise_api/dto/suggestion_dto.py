@@ -4,7 +4,8 @@ class SuggestionDTO:
         self.content = content
         self.role = role
         self.model_used = model_used
-        
+    
+    @classmethod
     def from_suggestion(cls, suggestion):
         return cls(
             prompt=suggestion.prompt,
