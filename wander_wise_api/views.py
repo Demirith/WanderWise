@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .service_locator import service_locator
+from wander_wise_api.dto.suggestion_dto import SuggestionDTO
 
 @api_view(['GET'])
 def suggestion(request, service_locator=service_locator):
@@ -16,6 +17,7 @@ def suggestion(request, service_locator=service_locator):
     ]    
     
     trips_service = service_locator.get_service('trips_service')
-    suggestion_response = trips_service.get_suggestion(messages)
+    suggestion = trips_service.get_suggestion(messages)
 
+    suggestion_response = SuggestionDTO.from_suggestion(suggestion)
     return Response(suggestion_response.to_dict())

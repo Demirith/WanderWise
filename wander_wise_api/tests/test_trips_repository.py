@@ -1,5 +1,3 @@
-import json
-import os
 from django.test import TestCase
 from unittest.mock import mock_open, patch, Mock, call
 from wander_wise_api.repositories.trips_repository import TripsRepository

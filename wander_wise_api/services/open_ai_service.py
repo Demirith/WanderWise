@@ -15,6 +15,6 @@ class OpenAIService(ITripSuggestionService):
         
         response_message = completion.choices[0].message
         model_used = completion.model
-        suggestion_response = Suggestion(json.dumps(messages), response_message, model_used)
+        suggestion = Suggestion(json.dumps(messages), response_message, model_used)
         
-        return suggestion_response
+        return suggestion
