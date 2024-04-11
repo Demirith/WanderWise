@@ -1,9 +1,9 @@
 import json 
 from django.test import TestCase
 from unittest.mock import Mock
-from wander_wise_api.services.trips_service import TripsService
-from wander_wise_api.services.i_trip_suggestion_service import ITripSuggestionService
-from wander_wise_api.repositories.i_trips_repository import ITripsRepository
+from api.services.trips_service import TripsService
+from api.services.i_trip_suggestion_service import ITripSuggestionService
+from api.repositories.i_trips_repository import ITripsRepository
 
 class TestTripsService(TestCase):
     def setUp(self):

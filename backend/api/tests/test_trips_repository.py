@@ -1,7 +1,7 @@
 from django.test import TestCase
 from unittest.mock import mock_open, patch, Mock, call
-from wander_wise_api.repositories.trips_repository import TripsRepository
-from wander_wise_api.models import Suggestion
+from api.repositories.trips_repository import TripsRepository
+from api.models import Suggestion
 
 class TestTripsRepository(TestCase):
     def setUp(self):

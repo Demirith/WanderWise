@@ -3,7 +3,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from .service_locator import service_locator
-from wander_wise_api.dto.suggestion_dto import SuggestionDTO
+from api.dto.suggestion_dto import SuggestionDTO
 
 @api_view(['GET'])
 def suggestion(request, service_locator=service_locator):

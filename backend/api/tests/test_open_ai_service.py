@@ -1,7 +1,7 @@
 import json
 from django.test import TestCase
 from unittest.mock import Mock
-from wander_wise_api.services.open_ai_service import OpenAIService
+from api.services.open_ai_service import OpenAIService
 
 class TestOpenAIService(TestCase):
     def setUp(self):

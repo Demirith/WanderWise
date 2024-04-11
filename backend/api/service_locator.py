@@ -1,6 +1,6 @@
-from wander_wise_api.services.trips_service import TripsService
-from wander_wise_api.services.open_ai_service import OpenAIService
-from wander_wise_api.repositories.trips_repository import TripsRepository
+from api.services.trips_service import TripsService
+from api.services.open_ai_service import OpenAIService
+from api.repositories.trips_repository import TripsRepository
 
 class ServiceLocator: 
     _instance = None

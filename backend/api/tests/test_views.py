@@ -1,13 +1,13 @@
 from django.test import TestCase, RequestFactory
 from unittest.mock import patch, Mock
 from rest_framework import status
-from wander_wise_api.views import suggestion
+from api.views import suggestion
 
 class TestSuggestionView(TestCase):
     def setUp(self):
         self.factory = RequestFactory()
 
-    @patch('wander_wise_api.views.service_locator.get_service')
+    @patch('api.views.service_locator.get_service')
     def test_suggestion_success(self, mock_get_service):
         # Arrange
         mock_response = Mock()
@@ -30,7 +30,7 @@ class TestSuggestionView(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         mock_trips_service.get_suggestion.assert_called_once()
 
-    @patch('wander_wise_api.views.service_locator.get_service')
+    @patch('api.views.service_locator.get_service')
     def test_suggestion_error(self, mock_get_service):
         # Arrange
         mock_get_service.side_effect = Exception("Mocked Exception")
@@ -43,7 +43,7 @@ class TestSuggestionView(TestCase):
         # Assert
         self.assertEqual(response.status_code, status.HTTP_500_INTERNAL_SERVER_ERROR)
         
-    @patch('wander_wise_api.views.service_locator.get_service')
+    @patch('api.views.service_locator.get_service')
     def test_suggestion_error_from_service(self, mock_get_service):
         # Arrange
         mock_trips_service = Mock()
