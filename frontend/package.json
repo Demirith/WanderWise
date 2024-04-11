@@ -16,6 +16,8 @@
     "vite-plugin-solid": "^2.8.2"
   },
   "dependencies": {
+    "eslint-config-prettier": "^9.1.0",
+    "solid-bootstrap": "^1.0.19",
     "solid-js": "^1.8.11"
   }
 }
