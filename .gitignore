@@ -158,3 +158,22 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+
+node_modules/
+dist/
+lib/
+.idea/
+coverage/
+types/
+.DS_Store
+.turbo/
+
+packages/solid/src/jsx.d.ts
+packages/solid/h/jsx-runtime/src/jsx.d.ts
+packages/solid/web/server/server.d.ts
+packages/solid/web/src/client.d.ts
+packages/solid/universal/src/universal.d.ts
+
+# vscode devcontainers see issues #419 and #421 for context
+/.devcontainer.json
+/devcontainer
