@@ -1,11 +1,17 @@
 import type { Component } from "solid-js";
-import TripsForm from "./components/TripForm";
 import styles from "./App.module.css";
 
-const App: Component = () => {
+const App: Component = (props: any) => {
   return (
     <div class={styles.App}>
-      <TripsForm />
+      <h1>Wander Wise</h1>
+      <nav>
+        <a href="/">Home</a>
+        <br />
+        <a href="/trip">Create suggestion</a>
+      </nav>
+      <br />
+      {props.children}
     </div>
   );
 };
