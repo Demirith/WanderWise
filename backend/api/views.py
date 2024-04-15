@@ -4,7 +4,7 @@ from rest_framework import status
 from .service_locator import service_locator
 from api.dto.suggestion_dto import SuggestionDTO
 from api.types.suggestion_types import SuggestionData
-from api.utils.data_processing import construct_messages
+from api.utils.data_processing import construct_message
 
 @api_view(['POST'])
 def suggestion(request, service_locator=service_locator):
@@ -12,7 +12,7 @@ def suggestion(request, service_locator=service_locator):
     
     try:
         suggestionData = SuggestionData.convert_data_to_suggestion(data)
-        messages = construct_messages(suggestionData)
+        messages = construct_message(suggestionData)
         
         trips_service = service_locator.get_service('trips_service')
         suggestion = trips_service.get_suggestion(messages)
