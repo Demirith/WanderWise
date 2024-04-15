@@ -1,14 +1,44 @@
 import { Component, createSignal } from "solid-js";
 import { Form, Row, Col, Button } from "solid-bootstrap";
 import { JSX } from "solid-js/jsx-runtime";
+import { action, useAction, useSubmission, redirect } from "@solidjs/router";
+import { createFormDataDTO } from "../types/dto/formDataDTO";
+import { FormDataDTO } from "../types/dto/formDataDTO";
+
+const submitFormData = action(async (data: FormDataDTO) => {
+  try {
+    const response = await fetch("http://127.0.0.1:8000/api/trips/suggestion", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to submit form data");
+    }
+
+    const responseData = await response.json();
+    console.log("responseData.content: ", responseData.content);
+
+    return responseData;
+  } catch (error) {
+    console.error("Error submitting form data:", error);
+    throw error;
+  }
+});
 
 const TripForm: Component = () => {
-  const [startDestination, setStartDestination] = createSignal("");
-  const [endDestination, setEndDestination] = createSignal("");
-  const [duration, setDuration] = createSignal("");
-  const [budget, setBudget] = createSignal("");
-  const [pointOfInterests, setPointOfInterests] = createSignal("");
-  const [interests, setInterests] = createSignal("");
+  const [startDestination, setStartDestination] = createSignal("Tokoy");
+  const [endDestination, setEndDestination] = createSignal("Tokyo");
+  const [duration, setDuration] = createSignal("4 weeks");
+  const [budget, setBudget] = createSignal("70000 kr");
+  const [pointOfInterests, setPointOfInterests] = createSignal("mount fuji");
+  const [interests, setInterests] = createSignal("fishing, hiking");
+
+  const handleSubmit = useAction(submitFormData);
+  const response = useSubmission(submitFormData);
 
   const handleStartDestinationInputChange: JSX.EventHandler<any, InputEvent> = (
     event
@@ -52,14 +82,23 @@ const TripForm: Component = () => {
     console.log("event.currentTarget.value: ", event.currentTarget.value);
   };
 
-  const handleSubmit = (event: any) => {
+  const handleFormSubmit = (event: Event) => {
     event.preventDefault();
-    console.log("Interests:", interests());
-    console.log("pointOfInterests:", pointOfInterests());
+
+    const data = createFormDataDTO(
+      startDestination(),
+      endDestination(),
+      duration(),
+      budget(),
+      pointOfInterests(),
+      interests()
+    );
+
+    handleSubmit(data);
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleFormSubmit}>
       <Row class="mb-3">
         <Form.Group as={Col} controlId="formGridStartDestination">
           <Form.Label>

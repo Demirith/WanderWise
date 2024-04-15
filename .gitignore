@@ -164,7 +164,6 @@ dist/
 lib/
 .idea/
 coverage/
-types/
 .DS_Store
 .turbo/
 
