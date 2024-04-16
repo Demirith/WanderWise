@@ -20,7 +20,7 @@ render(
     <Router root={App}>
       <Route path="/" component={Home} />
       <Route path="/trip" component={TripForm} />
-      <Route path="/suggestion" component={Suggestion} />
+      <Route path="/suggestion/:content" component={Suggestion} />
       <Route path="*404" component={NotFound} />
     </Router>
   ),

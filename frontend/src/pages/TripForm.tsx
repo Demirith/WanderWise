@@ -1,7 +1,7 @@
 import { Component, createSignal } from "solid-js";
-import { Form, Row, Col, Button } from "solid-bootstrap";
+import { Form, Row, Col, Button, Spinner } from "solid-bootstrap";
 import { JSX } from "solid-js/jsx-runtime";
-import { action, useAction, useSubmission, redirect } from "@solidjs/router";
+import { action, useAction, redirect, useNavigate } from "@solidjs/router";
 import { createFormDataDTO } from "../types/dto/formDataDTO";
 import { FormDataDTO } from "../types/dto/formDataDTO";
 
@@ -22,7 +22,7 @@ const submitFormData = action(async (data: FormDataDTO) => {
     const responseData = await response.json();
     console.log("responseData.content: ", responseData.content);
 
-    return responseData;
+    return responseData.content;
   } catch (error) {
     console.error("Error submitting form data:", error);
     throw error;
@@ -37,8 +37,9 @@ const TripForm: Component = () => {
   const [pointOfInterests, setPointOfInterests] = createSignal("mount fuji");
   const [interests, setInterests] = createSignal("fishing, hiking");
 
+  const [loading, setLoading] = createSignal(false);
   const handleSubmit = useAction(submitFormData);
-  const response = useSubmission(submitFormData);
+  const navigate = useNavigate();
 
   const handleStartDestinationInputChange: JSX.EventHandler<any, InputEvent> = (
     event
@@ -82,8 +83,10 @@ const TripForm: Component = () => {
     console.log("event.currentTarget.value: ", event.currentTarget.value);
   };
 
-  const handleFormSubmit = (event: Event) => {
+  const handleFormSubmit = async (event: Event) => {
     event.preventDefault();
+
+    setLoading(true);
 
     const data = createFormDataDTO(
       startDestination(),
@@ -94,11 +97,31 @@ const TripForm: Component = () => {
       interests()
     );
 
-    handleSubmit(data);
+    try {
+      const suggestion = await handleSubmit(data);
+      setLoading(false);
+      navigate(`/suggestion/${encodeURIComponent(suggestion)}`);
+    } catch (error) {
+      setLoading(false);
+      throw error;
+    }
   };
 
+  const loadingSpinner = (
+    <>
+      <Spinner
+        as="span"
+        animation="grow"
+        size="sm"
+        role="status"
+        aria-hidden="true"
+      />
+      Loading...
+    </>
+  );
+
   return (
-    <Form onSubmit={handleFormSubmit}>
+    <Form onSubmit={handleFormSubmit} method="post">
       <Row class="mb-3">
         <Form.Group as={Col} controlId="formGridStartDestination">
           <Form.Label>
@@ -165,8 +188,8 @@ const TripForm: Component = () => {
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
-        Submit
+      <Button variant="primary" type="submit" disabled={loading()}>
+        {loading() ? loadingSpinner : "Submit"}
       </Button>
     </Form>
   );
