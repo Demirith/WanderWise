@@ -1,0 +1,9 @@
+.Suggestion h1 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.Suggestion p {
+  white-space: pre-wrap;
+}

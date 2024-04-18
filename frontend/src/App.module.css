@@ -1,4 +1,40 @@
+/* Reset CSS */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Container */
 .App {
-  border: 1px solid #ccc; /* Adjust border color and width as needed */
-  padding: 20px; /* Optional: Add padding to create space between the border and content */
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  padding-top: 50px;
+  display: flex;
+}
+
+/* Navigation */
+.App nav {
+  width: 350px;
+  padding: 20px;
+  padding-top: 50px;
+}
+
+.App nav ul {
+  flex: 1;
+  padding: 20px;
+}
+
+.App nav a {
+  text-decoration: none;
+  color: #007bff;
+  margin-right: 20px;
+  font-weight: bold;
 }

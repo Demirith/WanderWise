@@ -2,8 +2,9 @@ import { Component, createSignal } from "solid-js";
 import { Form, Row, Col, Button, Spinner } from "solid-bootstrap";
 import { JSX } from "solid-js/jsx-runtime";
 import { action, useAction, redirect, useNavigate } from "@solidjs/router";
-import { createFormDataDTO } from "../types/dto/formDataDTO";
-import { FormDataDTO } from "../types/dto/formDataDTO";
+import { createFormDataDTO } from "../../types/dto/formDataDTO";
+import { FormDataDTO } from "../../types/dto/formDataDTO";
+import styles from "./TripForm.module.css";
 
 const submitFormData = action(async (data: FormDataDTO) => {
   try {
@@ -20,7 +21,6 @@ const submitFormData = action(async (data: FormDataDTO) => {
     }
 
     const responseData = await response.json();
-    console.log("responseData.content: ", responseData.content);
 
     return responseData.content;
   } catch (error) {
@@ -121,7 +121,7 @@ const TripForm: Component = () => {
   );
 
   return (
-    <Form onSubmit={handleFormSubmit} method="post">
+    <Form class={styles.TripForm} onSubmit={handleFormSubmit} method="post">
       <Row class="mb-3">
         <Form.Group as={Col} controlId="formGridStartDestination">
           <Form.Label>

@@ -1,6 +1,7 @@
 import type { Component } from "solid-js";
 import { createSignal } from "solid-js";
 import { useParams } from "@solidjs/router";
+import styles from "./suggestion.module.css";
 
 const Suggestion: Component = () => {
   const [content, setContent] = createSignal("");
@@ -9,10 +10,10 @@ const Suggestion: Component = () => {
   setContent(decodeURIComponent(params.content) || "");
 
   return (
-    <div>
-      <h1>Suggestion traveling plan</h1>
+    <div class={styles.Suggestion}>
+      <h1>Traveling plan</h1>
       <br />
-      <p style={{ "white-space": "pre-wrap" }}>{content()}</p>
+      <p>{content()}</p>
     </div>
   );
 };

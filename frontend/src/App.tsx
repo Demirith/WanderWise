@@ -4,11 +4,15 @@ import styles from "./App.module.css";
 const App: Component = (props: any) => {
   return (
     <div class={styles.App}>
-      <h1>Wander Wise</h1>
       <nav>
-        <a href="/">Home</a>
-        <br />
-        <a href="/trip">Create suggestion</a>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/trip">Create trip</a>
+          </li>
+        </ul>
       </nav>
       <br />
       {props.children}

@@ -2,10 +2,10 @@
 import { render } from "solid-js/web";
 import { Router, Route } from "@solidjs/router";
 import App from "./App";
-import TripForm from "./pages/TripForm";
-import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
-import Suggestion from "./pages/Suggestion";
+import TripForm from "./pages/tripForm/TripForm";
+import Home from "./pages/home/Home";
+import NotFound from "./pages/notFound/NotFound";
+import Suggestion from "./pages/suggestion/Suggestion";
 
 const root = document.getElementById("root");
 

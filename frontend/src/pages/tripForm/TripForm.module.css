@@ -1,0 +1,24 @@
+.TripForm label {
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.TripForm .form-control {
+  margin-bottom: 20px;
+}
+
+.TripForm .mb-3:last-child {
+  margin-bottom: 0;
+}
+
+.TripForm .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  font-weight: bold;
+}
+
+.TripForm .btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
