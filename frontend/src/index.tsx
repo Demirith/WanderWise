@@ -6,6 +6,7 @@ import TripForm from "./pages/tripForm/TripForm";
 import Home from "./pages/home/Home";
 import NotFound from "./pages/notFound/NotFound";
 import Suggestion from "./pages/suggestion/Suggestion";
+import ErrorPage from "./pages/errorPage/ErrorPage";
 
 const root = document.getElementById("root");
 
@@ -22,6 +23,7 @@ render(
       <Route path="/trip" component={TripForm} />
       <Route path="/suggestion/:content" component={Suggestion} />
       <Route path="*404" component={NotFound} />
+      <Route path="/error/:message" component={ErrorPage} />
     </Router>
   ),
   root

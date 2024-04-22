@@ -17,7 +17,13 @@ const submitFormData = action(async (data: FormDataDTO) => {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to submit form data");
+      if (response.status === 429) {
+        return new Error("Rate limit exceeded. Please try again later.");
+      } else {
+        return new Error(
+          "Failed to submit form data. Status code: " + response.status
+        );
+      }
     }
 
     const responseData = await response.json();
@@ -98,9 +104,22 @@ const TripForm: Component = () => {
     );
 
     try {
-      const suggestion = await handleSubmit(data);
+      const suggestionOrError = await handleSubmit(data);
       setLoading(false);
-      navigate(`/suggestion/${encodeURIComponent(suggestion)}`);
+
+      if (suggestionOrError instanceof Error) {
+        // clean up and handle error redirects
+        if (
+          (suggestionOrError.message =
+            "Rate limit exceeded. Please try again later.")
+        ) {
+          navigate(`/error/${encodeURIComponent(suggestionOrError.message)}`);
+        } else {
+          navigate(`/error/${encodeURIComponent(suggestionOrError.message)}`);
+        }
+      } else {
+        navigate(`/suggestion/${encodeURIComponent(suggestionOrError)}`);
+      }
     } catch (error) {
       setLoading(false);
       throw error;

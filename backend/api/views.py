@@ -1,11 +1,13 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+from django_ratelimit.decorators import ratelimit
 from .service_locator import service_locator
 from api.dto.suggestion_dto import SuggestionDTO
 from api.types.suggestion_types import SuggestionData
 from api.utils.data_processing import construct_message
 
+@ratelimit(key='ip', rate='1/m')
 @api_view(['POST'])
 def suggestion(request, service_locator=service_locator):
     data = request.data

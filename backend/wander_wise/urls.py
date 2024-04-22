@@ -16,8 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import status
+from django_ratelimit.exceptions import Ratelimited
+from django.http import HttpResponse, HttpResponseForbidden
+
+def _handler403(request, exception=None):
+    if isinstance(exception, Ratelimited):
+        return HttpResponse('Rate limit exceeded. Please try again later.', status=status.HTTP_429_TOO_MANY_REQUESTS)
+    return HttpResponseForbidden('Forbidden', status=status.HTTP_403_FORBIDDEN)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('api.urls'))
 ]
+
+handler403 = _handler403
