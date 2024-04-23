@@ -1,7 +1,7 @@
 import type { Component } from "solid-js";
 import { createSignal } from "solid-js";
 import { useParams } from "@solidjs/router";
-import styles from "./suggestion.module.css";
+import styles from "./Suggestion.module.css";
 
 const Suggestion: Component = () => {
   const [content, setContent] = createSignal("");
