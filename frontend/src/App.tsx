@@ -15,7 +15,7 @@ const App: Component = (props: any) => {
         </ul>
       </nav>
       <br />
-      {props.children}
+      <main class={styles.main}>{props.children}</main>
     </div>
   );
 };

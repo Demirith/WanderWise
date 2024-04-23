@@ -1,9 +1,21 @@
+.Suggestion {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers content horizontally */
+  justify-content: center; /* Centers content vertically */
+  text-align: center; /* Ensures that the text within is centered */
+  padding: 20px;
+}
+
 .Suggestion h1 {
   font-size: 1.5rem;
   margin-bottom: 20px;
   color: #333;
+  width: 100%; /* Ensures full width */
 }
 
 .Suggestion p {
   white-space: pre-wrap;
+  max-width: 600px; /* Limits the width for better readability */
+  margin: 0 auto; /* Auto margins for horizontal centering */
 }
