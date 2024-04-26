@@ -13,7 +13,8 @@ body {
   z-index: 100; /* Ensure it is above other content */
   position: absolute; /* Adjust positioning if needed */
   background-color: rgb(238, 235, 235);
-  right: 0;
+  width: 40px;
+  left: 0;
   top: 0;
 }
 
@@ -83,9 +84,14 @@ body {
   .App nav {
     max-width: 100%;
     height: auto;
+    padding-top: 17px;
   }
 
   .App__button {
     display: block; /* Show button on small screens */
+  }
+
+  .App main {
+    padding-top: 20px;
   }
 }

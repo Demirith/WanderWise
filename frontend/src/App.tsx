@@ -1,5 +1,5 @@
 import { Component, createSignal, onCleanup } from "solid-js";
-import { Button } from "solid-bootstrap";
+import { IoMenu } from "solid-icons/io";
 import styles from "./App.module.css";
 import { SCREEN_NAV_BAR_WIDTH_LIMIT } from "./constants";
 
@@ -32,13 +32,7 @@ const App: Component = (props: any) => {
 
   return (
     <div class={styles.App}>
-      <Button
-        class={styles.App__button}
-        variant="outline-dark"
-        onClick={toggleShowNavigation}
-      >
-        Nav
-      </Button>
+      <IoMenu class={styles.App__button} onClick={toggleShowNavigation} />
       {shouldShowOverlay() && (
         <div class={styles.overlay} onClick={toggleShowNavigation}></div>
       )}
