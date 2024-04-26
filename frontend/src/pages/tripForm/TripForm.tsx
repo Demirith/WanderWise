@@ -31,17 +31,17 @@ const submitFormData = action(async (data: FormDataDTO) => {
     return responseData.content;
   } catch (error) {
     console.error("Error submitting form data:", error);
-    throw error;
+    return error;
   }
 });
 
 const TripForm: Component = () => {
-  const [startDestination, setStartDestination] = createSignal("Tokoy");
-  const [endDestination, setEndDestination] = createSignal("Tokyo");
-  const [duration, setDuration] = createSignal("4 weeks");
-  const [budget, setBudget] = createSignal("70000 kr");
-  const [pointOfInterests, setPointOfInterests] = createSignal("mount fuji");
-  const [interests, setInterests] = createSignal("fishing, hiking");
+  const [startDestination, setStartDestination] = createSignal("");
+  const [endDestination, setEndDestination] = createSignal("");
+  const [duration, setDuration] = createSignal("");
+  const [budget, setBudget] = createSignal("");
+  const [pointOfInterests, setPointOfInterests] = createSignal("");
+  const [interests, setInterests] = createSignal("");
 
   const [loading, setLoading] = createSignal(false);
   const handleSubmit = useAction(submitFormData);
@@ -51,42 +51,36 @@ const TripForm: Component = () => {
     event
   ) => {
     setStartDestination(event.currentTarget.value);
-    console.log("event.currentTarget.value: ", event.currentTarget.value);
   };
 
   const handleEndDestinationInputChange: JSX.EventHandler<any, InputEvent> = (
     event
   ) => {
     setEndDestination(event.currentTarget.value);
-    console.log("event.currentTarget.value: ", event.currentTarget.value);
   };
 
   const handleDurationInputChange: JSX.EventHandler<any, InputEvent> = (
     event
   ) => {
     setDuration(event.currentTarget.value);
-    console.log("event.currentTarget.value: ", event.currentTarget.value);
   };
 
   const handleBudgetInputChange: JSX.EventHandler<any, InputEvent> = (
     event
   ) => {
     setBudget(event.currentTarget.value);
-    console.log("event.currentTarget.value: ", event.currentTarget.value);
   };
 
   const handlePointOfInterestsInputChange: JSX.EventHandler<any, InputEvent> = (
     event
   ) => {
     setPointOfInterests(event.currentTarget.value);
-    console.log("event.currentTarget.value: ", event.currentTarget.value);
   };
 
   const handleInterestsInputChange: JSX.EventHandler<any, InputEvent> = (
     event
   ) => {
     setInterests(event.currentTarget.value);
-    console.log("event.currentTarget.value: ", event.currentTarget.value);
   };
 
   const handleFormSubmit = async (event: Event) => {

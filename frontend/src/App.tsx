@@ -12,7 +12,6 @@ const App: Component = (props: any) => {
   const [shouldShowOverlay, setShouldShowOverlay] = createSignal(false);
 
   const handleResize = () => {
-    console.log("handleResize", getNavBarState());
     setShouldShowNav(getNavBarState());
   };
 
