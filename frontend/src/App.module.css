@@ -8,12 +8,40 @@ body {
   width: 100%;
 }
 
+.App__button {
+  display: none; /* Hide button on large screens */
+  z-index: 100; /* Ensure it is above other content */
+  position: absolute; /* Adjust positioning if needed */
+  background-color: rgb(238, 235, 235);
+  right: 0;
+  top: 0;
+}
+
+.App__button:hover {
+  background-color: #cac9c9;
+}
+
+.App .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5; /* Ensure it's below the nav but above other content */
+}
+
+.nav__hide {
+  display: none;
+}
+
 .App nav {
   flex: 1;
   max-width: 240px; /* Adjust based on your preference */
   border-right: 1px solid #000000; /* A subtle border between nav and content */
   height: 100vh; /* Full viewport height */
   overflow-y: auto; /* Enables scrolling if items exceed the view height */
+  z-index: 6;
 }
 
 .App nav ul {
@@ -60,11 +88,8 @@ body {
     max-width: 100%;
     height: auto;
   }
-  .App main {
-    flex: 1 100%;
-    padding: 10px;
-    max-width: none; /* Allows the main to expand fully */
-    margin-left: auto;
-    margin-right: auto;
+
+  .App__button {
+    display: block; /* Show button on small screens */
   }
 }

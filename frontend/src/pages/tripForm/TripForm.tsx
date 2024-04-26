@@ -1,7 +1,7 @@
 import { Component, createSignal } from "solid-js";
 import { Form, Row, Col, Button, Spinner } from "solid-bootstrap";
 import { JSX } from "solid-js/jsx-runtime";
-import { action, useAction, redirect, useNavigate } from "@solidjs/router";
+import { action, useAction, useNavigate } from "@solidjs/router";
 import { createFormDataDTO } from "../../types/dto/formDataDTO";
 import { FormDataDTO } from "../../types/dto/formDataDTO";
 import styles from "./TripForm.module.css";
