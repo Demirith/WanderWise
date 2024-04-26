@@ -66,10 +66,6 @@ body {
   background-color: #cac9c9;
 }
 
-.App nav a.active {
-  color: #007bff;
-}
-
 .App main {
   display: flex;
   flex-direction: column;

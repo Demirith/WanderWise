@@ -1,0 +1,1 @@
+export const SCREEN_NAV_BAR_WIDTH_LIMIT = 768;
