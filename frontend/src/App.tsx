@@ -32,7 +32,7 @@ const App: Component = (props: any) => {
 
   return (
     <div class={styles.App}>
-      <IoMenu class={styles.App__button} onClick={toggleShowNavigation} />
+      <IoMenu class={styles.App__menu} onClick={toggleShowNavigation} />
       {shouldShowOverlay() && (
         <div class={styles.overlay} onClick={toggleShowNavigation}></div>
       )}

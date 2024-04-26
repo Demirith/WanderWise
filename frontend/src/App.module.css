@@ -8,17 +8,15 @@ body {
   width: 100%;
 }
 
-.App__button {
+.App__menu {
   display: none; /* Hide button on large screens */
   z-index: 100; /* Ensure it is above other content */
   position: absolute; /* Adjust positioning if needed */
-  background-color: rgb(238, 235, 235);
-  width: 40px;
-  left: 0;
-  top: 0;
+  left: 5px;
+  top: 5px;
 }
 
-.App__button:hover {
+.App__menu:hover {
   background-color: #cac9c9;
 }
 
@@ -84,10 +82,10 @@ body {
   .App nav {
     max-width: 100%;
     height: auto;
-    padding-top: 17px;
+    padding-top: 23px;
   }
 
-  .App__button {
+  .App__menu {
     display: block; /* Show button on small screens */
   }
 
