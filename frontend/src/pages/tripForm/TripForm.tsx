@@ -5,10 +5,11 @@ import { action, useAction, useNavigate } from "@solidjs/router";
 import { createFormDataDTO } from "../../types/dto/formDataDTO";
 import { FormDataDTO } from "../../types/dto/formDataDTO";
 import styles from "./TripForm.module.css";
+import { WANDER_WISE_API, ENDPOINT_TRIPS_SUGGESTION } from "../../constants";
 
 const submitFormData = action(async (data: FormDataDTO) => {
   try {
-    const response = await fetch("http://127.0.0.1:8000/api/trips/suggestion", {
+    const response = await fetch(WANDER_WISE_API + ENDPOINT_TRIPS_SUGGESTION, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
