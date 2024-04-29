@@ -3,13 +3,11 @@ from django.test import TestCase
 from unittest.mock import Mock
 from api.services.trips_service import TripsService
 from api.services.i_trip_suggestion_service import ITripSuggestionService
-from api.repositories.i_trips_repository import ITripsRepository
 
 class TestTripsService(TestCase):
     def setUp(self):
-        self.mock_repository = Mock(spec=ITripsRepository)
         self.mock_suggestion_service = Mock(spec=ITripSuggestionService)
-        self.service = TripsService(self.mock_repository, self.mock_suggestion_service)
+        self.service = TripsService(self.mock_suggestion_service)
 
     def test_get_suggestion(self):
         # Arrange
@@ -35,4 +33,3 @@ class TestTripsService(TestCase):
         self.assertEqual(result.model_used, mock_response.model_used)
         
         self.mock_suggestion_service.get_trip_suggestion.assert_called_once_with(test_messages)
-        self.mock_repository.save_suggestion.assert_called_once_with(mock_response)

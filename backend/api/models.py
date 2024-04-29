@@ -1,17 +1,17 @@
 from django.db import models
-
-# Create your models here.
-class Suggestion:
-    def __init__(self, prompt, response_message, model_used):
-        self.prompt = prompt
-        self.content = response_message.content
-        self.role = response_message.role
-        self.model_used = model_used
+from django.contrib.auth.models import User
         
-    def to_dict(self):
-        return {
-            "prompt": self.prompt,
-            "content": self.content,
-            "role": self.role,
-            "model_used": self.model_used
-        }
+class Trip(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='trips')
+    trip_name = models.CharField(max_length=100)
+    start_date = models.DateField()
+    end_date = models.DateField()
+
+class Suggestion(models.Model):
+    trip = models.ForeignKey(Trip, on_delete=models.CASCADE, related_name='suggestions', null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='suggestions', null=True, blank=True)
+    prompt = models.TextField()
+    content = models.TextField()
+    role = models.CharField(max_length=50)
+    model_used = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
