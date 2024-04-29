@@ -103,15 +103,7 @@ const TripForm: Component = () => {
       setLoading(false);
 
       if (suggestionOrError instanceof Error) {
-        // clean up and handle error redirects
-        if (
-          (suggestionOrError.message =
-            "Rate limit exceeded. Please try again later.")
-        ) {
-          navigate(`/error/${encodeURIComponent(suggestionOrError.message)}`);
-        } else {
-          navigate(`/error/${encodeURIComponent(suggestionOrError.message)}`);
-        }
+        navigate(`/error/${encodeURIComponent(suggestionOrError.message)}`);
       } else {
         navigate(`/suggestion/${encodeURIComponent(suggestionOrError)}`);
       }
