@@ -85,6 +85,10 @@ body {
     padding-top: 23px;
   }
 
+  .App nav li {
+    padding: 10px 10px;
+  }
+
   .App__menu {
     display: block; /* Show button on small screens */
   }
