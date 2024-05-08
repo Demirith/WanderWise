@@ -121,6 +121,7 @@ celerybeat.pid
 
 # Environments
 .env
+.env.production
 .venv
 env/
 venv/
@@ -180,3 +181,6 @@ packages/solid/universal/src/universal.d.ts
 # PostgresSQL
 .my_pgpass
 .pg_service.conf
+
+#Google Cloud
+app.yaml

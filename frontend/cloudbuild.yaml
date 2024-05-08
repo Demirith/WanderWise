@@ -1,0 +1,12 @@
+steps:
+  # Install dependencies using npm
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["install"]
+
+  # Build your application
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["run", "build"]
+
+  # Additional steps such as testing or deployment
+  - name: "gcr.io/cloud-builders/gcloud"
+    args: ["app", "deploy"]
