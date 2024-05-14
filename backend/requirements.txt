@@ -4,6 +4,7 @@ asgiref==3.8.1
 certifi==2024.2.2
 colorama==0.4.6
 distro==1.9.0
+dj-database-url==2.1.0
 Django==5.0.3
 django-cors-headers==4.3.1
 django-ratelimit==4.1.0

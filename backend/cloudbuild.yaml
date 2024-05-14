@@ -1,0 +1,22 @@
+steps:
+  # Install Python dependencies
+  - name: "python"
+    entrypoint: "pip"
+    args: ["install", "-r", "requirements.txt"]
+
+  # Run tests with custom settings
+  - name: "python"
+    entrypoint: "python"
+    args: ["manage.py", "test", "api", "--settings=wander_wise.test_settings"]
+
+  # Collect static files
+  - name: "python"
+    entrypoint: "python"
+    args: ["manage.py", "collectstatic", "--noinput"]
+
+  # Deploy to Google App Engine
+  - name: "gcr.io/cloud-builders/gcloud"
+    args: ["app", "deploy"]
+
+# This timeout value is adjustable depending on the expected build time
+timeout: "1600s"

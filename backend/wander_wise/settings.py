@@ -11,7 +11,12 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 from decouple import config
+
+REDIS_HOST = config("REDIS_HOST")
+WANDER_WISE_FRONT_END = config("WANDER_WISE_FRONT_END")
+DATABASE_URL = config("DATABASE_URL")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -55,7 +60,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    config("WANDER_WISE_FRONT_END"),
+    WANDER_WISE_FRONT_END,
 ]
 
 ROOT_URLCONF = "wander_wise.urls"
@@ -81,15 +86,7 @@ WSGI_APPLICATION = "wander_wise.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "OPTIONS": {
-            "service": "wander_wise",
-            "passfile": config("DATABASE_PASSFILE_PATH"),
-        },
-    }
-}
+DATABASES = {"default": dj_database_url.parse(DATABASE_URL)}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -135,7 +132,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.redis.RedisCache",
-        "LOCATION": config("CACHES_URL"),
+        "LOCATION": REDIS_HOST,
     }
 }
 
